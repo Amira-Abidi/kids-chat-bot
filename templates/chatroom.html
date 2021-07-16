@@ -1,0 +1,128 @@
+<!--
+<div id="webchat"></div>
+<script src="https://cdn.jsdelivr.net/npm/rasa-webchat@0.11.5/lib/index.min.js"></script>
+&lt;!&ndash;// you can add a version tag if you need, e.g for version 0.11.5 https://cdn.jsdelivr.net/npm/rasa-webchat@0.11.5/lib/index.min.js&ndash;&gt;
+<script>
+  window.onload = WebChat.open;
+  WebChat.default.init({
+    selector: "#webchat",
+    initPayload: "main menu",
+    customData: {"language": "en"}, // arbitrary custom data. Stay minimal as this will be added to the socket
+    socketUrl: "http://localhost:5005",
+    socketPath: "/socket.io/",
+    title: "This is Title",
+    subtitle: "AI Assistant",
+    inputTextFieldHint: "Type a message",
+    embedded: false,
+    showFullScreenButton: true,
+    showMessageDate: false,
+    hideWhenNotConnected: false,
+    displayUnreadCount: true,
+    profileAvatar: "https://static.wixstatic.com/media/7309b2_23f0b6a0511741648ca7b21acfb1fa6d~mv2.png",
+
+    params: {"storage": "session"} // can be set to "local"  or "session". details in storage section.
+  })
+</script>-->
+<!--
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="webchat">
+      <script src="https://storage.googleapis.com/mrbot-cdn/webchat-0.5.8.js"></script>
+      <script>
+        WebChat.default.init({
+          selector: "#webchat",
+          initPayload: "/get_started",
+          interval: 1000, // 1000 ms between each message
+          socketUrl: "http://localhost:5005",
+          socketPath: "/socket.io/",
+          title: "Rsykoss",
+          inputTextFieldHint: "Type a message...",
+          connectingText: "Waiting for server...",
+          hideWhenNotConnected: false,
+          fullScreenMode: true,
+          profileAvatar: "https://static.wixstatic.com/media/7309b2_23f0b6a0511741648ca7b21acfb1fa6d~mv2.png",
+          openLauncherImage: 'myCustomOpenImage.png',
+          closeLauncherImage: 'myCustomCloseImage.png',
+          params: {
+            images: {
+              dims: {
+                width: 300,
+                height: 200,
+              }
+            },
+            storage: "session"
+          }
+        })
+      </script>
+    </div>
+  </body>
+</html>-->
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.css" />
+  </head>
+  <body>
+  <style>
+    .rw-conversation-container .rw-header {
+    background-color: #070775;
+    }
+    .rw-messages-container .rw-message .rw-client{
+    background-color: #070775;
+    }
+    .rw-launcher {
+    background-color: #070775;}
+
+
+  </style>
+
+  <div class="chat-container"></div>
+  <script src="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.js"/></script>
+  <script type="text/javascript">
+
+!(function () {
+  let e = document.createElement("script"),
+    t = document.head || document.getElementsByTagName("head")[0];
+  (e.src =
+    "https://cdn.jsdelivr.net/npm/rasa-webchat@1.x.x/lib/index.js"),
+    // Replace 1.x.x with the version that you want
+    (e.async = !0),
+    (e.onload = () => {
+      window.WebChat.default(
+        {
+          selector: "#webchat",
+          container: document.querySelector(".chat-container"),
+          initPayload: "/greet",
+          customData: { language: "en" },
+          socketUrl: "http://localhost:5005",
+          title: 'KidsBot',
+          subtitle: 'student',
+          profileAvatar: "https://cdn131.picsart.com/300714305073211.png",
+          fullScreenMode: false,
+          welcomeMessage: "Hi, I am Amira. How may I help you?",
+          speechRecognition: "en-US",
+          voiceLang: "en-US",
+          showFullScreenButton: true,
+          showMessageDate: true,
+          params: {
+            images: {
+              dims: {
+                width: 300,
+                height: 200,
+              }
+            },
+            storage: "session"
+          }
+        },
+        null
+      );
+    }),
+    t.insertBefore(e, t.firstChild);
+})();
+</script>
+
+</body>
+</html>
